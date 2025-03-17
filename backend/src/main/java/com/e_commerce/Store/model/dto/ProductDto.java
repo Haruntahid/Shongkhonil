@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 public class ProductDto {
@@ -21,5 +23,7 @@ public class ProductDto {
     private double stock;
     @NotNull(message = "Image Require")
     private String imageUrl;
-    private Category category;
+
+    private List<Long> categoryIds;
+    private List<Long> colorIds;
 }
