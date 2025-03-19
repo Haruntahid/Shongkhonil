@@ -42,4 +42,33 @@ public class ProductMapper {
         }
         return entity;
     }
+
+
+    public void updateEntity(Products existing, ProductDto dto) {
+        existing.setName(dto.getName());
+        existing.setPrice(dto.getPrice());
+        existing.setDescription(dto.getDescription());
+        existing.setImageUrl(dto.getImageUrl());
+        existing.setStock(dto.getStock());
+
+        if (dto.getCategoryIds() != null) {
+            List<Category> categories = dto.getCategoryIds().stream()
+                    .map(id -> {
+                        Category category = new Category();
+                        category.setId(id);
+                        return category;
+                    }).collect(Collectors.toList());
+            existing.setCategory(categories);
+        }
+
+        if (dto.getColorIds() != null) {
+            List<Colors> colors = dto.getColorIds().stream()
+                    .map(id -> {
+                        Colors color = new Colors();
+                        color.setId(id);
+                        return color;
+                    }).collect(Collectors.toList());
+            existing.setColors(colors);
+        }
+    }
 }

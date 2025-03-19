@@ -15,10 +15,4 @@ public class ColorMapper {
         return entity;
     }
 
-    public ColorDto map(Colors entity) {
-        ColorDto dto = new ColorDto();
-        dto.setColor(entity.getColor());
-        dto.setColorCode(entity.getColorCode());
-        return dto;
-    }
 }

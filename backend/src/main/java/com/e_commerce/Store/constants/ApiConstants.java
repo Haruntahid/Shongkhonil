@@ -19,5 +19,10 @@ public class ApiConstants {
     public static final String UPLOAD_COLOR = ADMIN+COLOR;
     public static final String GET_COLOR = ADMIN+COLOR+ID;
 
+    // category related API's
+    private static final String CATEGORY= "/category";
+    public static final String UPLOAD_CATEGORY = ADMIN+CATEGORY;
+    public static final String GET_CATEGORY = ADMIN+CATEGORY+ID;
+
 
 }

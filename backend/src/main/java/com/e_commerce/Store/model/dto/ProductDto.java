@@ -1,9 +1,8 @@
 package com.e_commerce.Store.model.dto;
 
-import com.e_commerce.Store.model.entity.Category;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public class ProductDto {
     @NotNull(message = "Name cannot be empty.")
     private String name;
 
-    @Max(value = 250, message = "Description cannot be longer than 250 characters.")
+    @Size(max = 250, message = "Description cannot be longer than 250 characters.")
     private String description;
 
     @NotNull(message = "Price cannot be empty.")
