@@ -29,5 +29,17 @@ public class ServerResponse {
         return successResponse(message, HttpStatus.OK);
     }
 
+    public static ResponseEntity<ResponseWithData> withData(String message, Object data) {
+        return ResponseEntity.ok().body(
+                new ResponseWithData(
+                        HttpStatus.OK.value(),
+                        "Success",
+                        message,
+                        data
+                )
+        );
+    }
+
+
 
 }

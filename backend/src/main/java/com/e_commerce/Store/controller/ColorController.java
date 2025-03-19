@@ -3,6 +3,7 @@ package com.e_commerce.Store.controller;
 import com.e_commerce.Store.model.dto.ColorDto;
 import com.e_commerce.Store.model.mapper.ColorMapper;
 import com.e_commerce.Store.response.ApiResponse;
+import com.e_commerce.Store.response.ResponseWithData;
 import com.e_commerce.Store.response.ServerResponse;
 import com.e_commerce.Store.service.ColorService;
 import com.e_commerce.Store.utils.CrudController;
@@ -15,7 +16,7 @@ import static com.e_commerce.Store.constants.ApiConstants.*;
 @RestController
 @RequestMapping(BASEURL)
 @RequiredArgsConstructor
-public class ColorController implements CrudController<ApiResponse, ColorDto>{
+public class ColorController implements CrudController<ColorDto> {
 
     private final ColorService colorService;
     private final ColorMapper mapper;
@@ -29,7 +30,7 @@ public class ColorController implements CrudController<ApiResponse, ColorDto>{
 
     @Override
     @PatchMapping(GET_COLOR)
-    public ResponseEntity<ApiResponse> update(@PathVariable Long id,@RequestBody ColorDto dto) {
+    public ResponseEntity<ApiResponse> update(@PathVariable Long id, @RequestBody ColorDto dto) {
         colorService.updateColor(id, mapper.map(dto));
         return ServerResponse.Ok("Updated Color Successfully");
     }
@@ -43,8 +44,8 @@ public class ColorController implements CrudController<ApiResponse, ColorDto>{
 
     @Override
     @GetMapping(GET_COLOR)
-    public ResponseEntity<ApiResponse> find(@PathVariable Long id) {
+    public ResponseEntity<ResponseWithData> find(@PathVariable Long id) {
         colorService.find(id);
-        return ServerResponse.Ok("Successfully Fetch Color");
+        return ServerResponse.withData("Successfully Fetch Color", colorService.find(id));
     }
 }

@@ -18,7 +18,7 @@ import static com.e_commerce.Store.constants.ApiConstants.*;
 @RestController
 @RequestMapping(BASEURL)
 @RequiredArgsConstructor
-public class ProductController implements CrudController<ApiResponse,ProductDto> {
+public class ProductController implements CrudController<ProductDto> {
 
     private final ProductService productService;
     private final ProductMapper productMapper;
