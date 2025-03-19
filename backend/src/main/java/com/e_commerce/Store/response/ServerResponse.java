@@ -1,0 +1,33 @@
+package com.e_commerce.Store.response;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+public class ServerResponse {
+
+    private static ResponseEntity<ApiResponse> generateResponse(String status, String message, HttpStatus httpStatus) {
+        return new ResponseEntity<>(
+                new ApiResponse(httpStatus.value(), status, message != null ? message : "Unexpected Error Occurred"
+                ), httpStatus
+        );
+    }
+
+    private static ResponseEntity<ApiResponse> successResponse(String message, HttpStatus httpStatus) {
+        return generateResponse("Success", message, httpStatus);
+    }
+
+    private static ResponseEntity<ApiResponse> errorResponse(String message, HttpStatus httpStatus) {
+        return generateResponse("Failed", message, httpStatus);
+    }
+
+
+    public static ResponseEntity<ApiResponse> created(String message) {
+        return successResponse (message, HttpStatus.CREATED);
+    }
+
+    public static ResponseEntity<ApiResponse> Ok(String message) {
+        return successResponse(message, HttpStatus.OK);
+    }
+
+
+}
