@@ -12,6 +12,7 @@ public class ApiConstants {
     // product related API's
     public static final String PRODUCT = "/product";
     public static final String UPLOAD_PRODUCT = ADMIN+PRODUCT;
+    public static final String GET_PRODUCT = ADMIN+PRODUCT+ID;
 
 
     // colors related API's

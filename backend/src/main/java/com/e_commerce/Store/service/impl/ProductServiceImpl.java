@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void updateProduct(Long id, ProductDto dto) {
         Products exProduct = getProduct(id);
-        productMapper.updateEntity(exProduct, dto); // Use mapper to update fields
+        productMapper.updateEntity(exProduct, dto);
         productRepository.save(exProduct);
     }
 

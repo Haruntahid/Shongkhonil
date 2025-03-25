@@ -33,18 +33,21 @@ public class ProductController implements CrudController<ProductDto> {
     }
 
     @Override
+    @PatchMapping(GET_PRODUCT)
     public ResponseEntity<ApiResponse> update(@PathVariable Long id,@Valid @RequestBody ProductDto dto) {
         productService.updateProduct(id,dto);
         return ServerResponse.Ok("Product Updated Successfully");
     }
 
     @Override
+    @DeleteMapping(GET_PRODUCT)
     public ResponseEntity<ApiResponse> delete(@PathVariable Long id) {
        productService.deleteProduct(id);
        return ServerResponse.Ok("Product Deleted Successfully");
     }
 
     @Override
+    @GetMapping(GET_PRODUCT)
     public ResponseEntity<ResponseWithData> find(@PathVariable Long id) {
         productService.getProduct(id);
         return ServerResponse.withData("Product fetch successfully",productService.getProduct(id));
