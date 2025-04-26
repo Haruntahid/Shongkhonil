@@ -5,12 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.List;
 
 @Entity
+@Data
 @Table(name = "user")
 public class Users extends BaseEntity {
     private String firstName;
