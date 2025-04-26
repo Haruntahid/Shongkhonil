@@ -40,6 +40,16 @@ public class ServerResponse {
         );
     }
 
+    public static ResponseEntity<ApiResponse> conflict(String message) {
+        return errorResponse(message, HttpStatus.CONFLICT);
+    }
 
+    public static ResponseEntity<ApiResponse> unauthorized(String message) {
+        return errorResponse(message, HttpStatus.UNAUTHORIZED);
+    }
+
+    public static ResponseEntity<ApiResponse> notFound(String message) {
+        return errorResponse(message, HttpStatus.NOT_FOUND);
+    }
 
 }
