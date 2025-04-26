@@ -12,4 +12,12 @@ public class CategoryMapper {
         entity.setDescription(dto.getDescription());
         return entity;
     }
+
+    public CategoryDto map(Category entity){
+        CategoryDto dto = new CategoryDto();
+        dto.setName(entity.getName());
+        dto.setDescription(entity.getDescription());
+        return dto;
+    }
+
 }

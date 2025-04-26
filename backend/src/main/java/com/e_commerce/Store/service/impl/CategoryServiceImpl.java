@@ -1,9 +1,13 @@
 package com.e_commerce.Store.service.impl;
 
+import com.e_commerce.Store.model.dto.CategoryDto;
 import com.e_commerce.Store.model.entity.Category;
 import com.e_commerce.Store.repository.CategoryRepository;
 import com.e_commerce.Store.service.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -42,4 +46,9 @@ public class CategoryServiceImpl implements CategoryService {
         return category.get();
     }
 
+    @Override
+    public Object findAll(Integer page, Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return categoryRepository.findAll(pageable);
+    }
 }

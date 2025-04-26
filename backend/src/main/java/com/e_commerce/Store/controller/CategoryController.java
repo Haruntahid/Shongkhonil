@@ -10,6 +10,7 @@ import com.e_commerce.Store.utils.CrudController;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.query.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +50,14 @@ public class CategoryController implements CrudController<CategoryDto> {
     public ResponseEntity<ResponseWithData> find(@PathVariable Long id) {
         categoryService.find(id);
         return ServerResponse.withData("Successfully Fetch Category", categoryService.find(id));
+    }
+
+    @GetMapping(GET_ALL_CATEGORIES)
+    public ResponseEntity<ResponseWithData> findAll(
+            @RequestParam(required = false, defaultValue = "0")  Integer page,
+            @RequestParam(required = false, defaultValue = "10") Integer size) {
+
+        categoryService.findAll(page,size);
+        return ServerResponse.withData("Successfully Fetch Category",categoryService.findAll(page,size));
     }
 }

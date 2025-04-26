@@ -24,6 +24,7 @@ public class ApiConstants {
     private static final String CATEGORY= "/category";
     public static final String UPLOAD_CATEGORY = ADMIN+CATEGORY;
     public static final String GET_CATEGORY = ADMIN+CATEGORY+ID;
+    public static final String GET_ALL_CATEGORIES = ADMIN+CATEGORY;
 
 
 }
