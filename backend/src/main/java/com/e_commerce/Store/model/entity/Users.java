@@ -6,14 +6,17 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.List;
 
 @Entity
-@Data
-@Table(name = "user")
+@Getter
+@Setter
+@Table(name = "users")
 public class Users extends BaseEntity {
     private String firstName;
     private String lastName;
