@@ -26,5 +26,7 @@ public class ApiConstants {
     public static final String GET_CATEGORY = ADMIN+CATEGORY+ID;
     public static final String GET_ALL_CATEGORIES = ADMIN+CATEGORY;
 
+    // user related API's
+    public static final String CREATE_ORDER = "/create-order";
 
 }

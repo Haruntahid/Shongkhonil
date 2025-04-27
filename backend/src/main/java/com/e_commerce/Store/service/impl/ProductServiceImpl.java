@@ -1,5 +1,6 @@
 package com.e_commerce.Store.service.impl;
 
+import com.e_commerce.Store.exceptions.NotFoundException;
 import com.e_commerce.Store.model.dto.ProductDto;
 import com.e_commerce.Store.model.entity.Products;
 import com.e_commerce.Store.model.mapper.ProductMapper;
@@ -39,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
     public Products getProduct(Long id) {
         Optional<Products> product = productRepository.findById(id);
         if (product.isEmpty()) {
-            throw new RuntimeException("Product not found with id " + id);
+            throw new NotFoundException("Product not found with id " + id);
         }
         return product.get();
     }

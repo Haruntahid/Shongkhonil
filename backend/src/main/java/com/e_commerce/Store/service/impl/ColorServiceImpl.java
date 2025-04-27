@@ -1,5 +1,6 @@
 package com.e_commerce.Store.service.impl;
 
+import com.e_commerce.Store.exceptions.NotFoundException;
 import com.e_commerce.Store.model.entity.Colors;
 import com.e_commerce.Store.repository.ColorRepository;
 import com.e_commerce.Store.service.ColorService;
@@ -37,7 +38,7 @@ public class ColorServiceImpl implements ColorService {
     public Colors find(Long id) {
         Optional<Colors> color = colorRepository.findById(id);
         if (color.isEmpty()) {
-            throw new RuntimeException("Color not found with id " + id);
+            throw new NotFoundException("Color not found with id " + id);
         }
        return color.get();
     }

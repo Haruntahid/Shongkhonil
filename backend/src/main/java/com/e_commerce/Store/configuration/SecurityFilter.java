@@ -25,7 +25,8 @@ public class SecurityFilter {
             "/swagger-resources/**",
             "/api-docs/**",
             "/v2/api-docs/**",
-            "/v3/api-docs/**"
+            "/v3/api-docs/**",
+            "/api/v1/create-order"
     };
 
     @Bean
