@@ -26,7 +26,8 @@ public class SecurityFilter {
             "/api-docs/**",
             "/v2/api-docs/**",
             "/v3/api-docs/**",
-            "/api/v1/create-order"
+            "/api/v1/create-order",
+            "/api/v1/create-order/**"
     };
 
     @Bean

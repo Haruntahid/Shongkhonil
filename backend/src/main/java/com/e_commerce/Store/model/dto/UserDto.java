@@ -13,8 +13,8 @@ public class UserDto {
     private String lastName;
     private String username;
     private String email;
-    @NotBlank(message = "Password cannot be blank")
-    private String password;
+//    @NotBlank(message = "Password cannot be blank")
+//    private String password;
     private String phone;
 
     List<Role> roles;

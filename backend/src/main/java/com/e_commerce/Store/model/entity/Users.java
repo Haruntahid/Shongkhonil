@@ -22,7 +22,7 @@ public class Users extends BaseEntity {
     private String lastName;
     private String username;
     private String email;
-    private String password;
+//    private String password;
     private String phone;
 
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)

@@ -57,17 +57,16 @@ public class UserAuthService implements CrudService<Users, UserDto> {
 
     // register with checkout => also create an order
     public String register(UserDto dto) {
-        Optional<Users> userExistWithUsernameOrPhone = userRepository.findByUsernameOrPhone(dto.getUsername(), dto.getPhone());
+//        Optional<Users> userExistWithUsernameOrPhone = userRepository.findByUsernameOrPhone(dto.getUsername(), dto.getPhone());
 
-        if (userExistWithUsernameOrPhone.isPresent()) {
-            throw new AlreadyExistException("User with username or phone already exists.");
-        }
+//        if (userExistWithUsernameOrPhone.isPresent()) {
+//            throw new AlreadyExistException("User with username or phone already exists.");
+//        }
 
 
         Users user = userMapper.map(dto);
-        user.setPassword(encoder.encode(dto.getPassword()));
+//        user.setPassword(encoder.encode(dto.getPassword()));
         userRepository.save(user);
-
         return jwtUtil.generateToken(dto.getUsername());
 
 //        Authentication authentication = authenticationManager
@@ -76,6 +75,5 @@ public class UserAuthService implements CrudService<Users, UserDto> {
 //        if(!authentication.isAuthenticated()) {
 //            throw new UnauthorizedException("User Not Authenticated");
 //        }else return jwtUtil.generateToken(dto.getUsername());
-//    }
     }
 };
