@@ -6,11 +6,11 @@ import com.e_commerce.Store.response.ResponseWithData;
 import com.e_commerce.Store.response.ServerResponse;
 import com.e_commerce.Store.service.impl.UserAuthService;
 import com.e_commerce.Store.utils.CrudController;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

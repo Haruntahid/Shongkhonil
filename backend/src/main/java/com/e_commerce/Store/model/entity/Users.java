@@ -1,10 +1,7 @@
 package com.e_commerce.Store.model.entity;
 
 import com.e_commerce.Store.utils.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,10 +19,10 @@ public class Users extends BaseEntity {
     private String lastName;
     private String username;
     private String email;
-//    private String password;
+    private String password;
     private String phone;
 
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     private List<Role> roles;
 }
