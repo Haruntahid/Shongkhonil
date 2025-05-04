@@ -28,7 +28,7 @@ public class UserMapper {
         entity.setUsername(dto.getUsername());
         // Map role IDs to Role entities
         entity.setEmail(dto.getEmail());
-//        entity.setPassword(dto.getPassword());
+        entity.setPassword(passwordEncoder.encode(dto.getPassword()));
         return entity;
     }
 

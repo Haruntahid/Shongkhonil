@@ -46,8 +46,8 @@ public class UserController implements CrudController<UserDto> {
 
     @PostMapping(CREATE_ORDER)
     public ResponseEntity<ResponseWithData> checkOut(@Valid @RequestBody UserDto dto) {
-        userAuthService.register(dto);
-        return ServerResponse.withData("Order Created Successfully",userAuthService.register(dto));
+        String token = userAuthService.register(dto);
+        return ServerResponse.withData("Order Created Successfully",token);
     }
 
 }
