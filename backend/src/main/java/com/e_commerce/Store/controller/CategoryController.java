@@ -57,7 +57,7 @@ public class CategoryController implements CrudController<CategoryDto> {
             @RequestParam(required = false, defaultValue = "0")  Integer page,
             @RequestParam(required = false, defaultValue = "10") Integer size) {
 
-        categoryService.findAll(page,size);
-        return ServerResponse.withData("Successfully Fetch Category",categoryService.findAll(page,size));
+        Object data = categoryService.findAll(page,size);
+        return ServerResponse.withData("Successfully Fetch Category",data);
     }
 }
