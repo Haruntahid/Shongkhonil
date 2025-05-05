@@ -7,7 +7,6 @@ import com.e_commerce.Store.response.ResponseWithData;
 import com.e_commerce.Store.response.ServerResponse;
 import com.e_commerce.Store.service.CategoryService;
 import com.e_commerce.Store.utils.CrudController;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.query.Page;
@@ -27,6 +26,7 @@ public class CategoryController implements CrudController<CategoryDto> {
     @Override
     @PostMapping(UPLOAD_CATEGORY)
     public ResponseEntity<ApiResponse> create(@Valid @RequestBody CategoryDto dto) {
+        System.out.println(dto.getName());
         categoryService.createCategory(mapper.map(dto));
         return ServerResponse.created("Category Created Successfully");
     }

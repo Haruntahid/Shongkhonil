@@ -25,4 +25,5 @@ public class Users extends BaseEntity {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     private List<Role> roles;
+
 }

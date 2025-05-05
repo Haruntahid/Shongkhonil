@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class CategoryDto {
-//    @NotNull(message = "Name cannot be empty.")
+    @NotNull(message = "Name cannot be empty.")
     private String name;
-//    @NotNull(message = "Description cannot be empty.")
+    @NotNull(message = "Description cannot be empty.")
     private String description;
 }
